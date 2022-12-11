@@ -40,9 +40,14 @@ url2='https://raw.githubusercontent.com/PacktPublishing/Time-Series-Analysis-wit
 # Decomposição
 
 A decomposição de uma série temporal é o processo de extrair as três componentes e representá-las como seus modelos. A modelagem das componentes decompostos pode ser aditivo ou multiplicativo.
-    - A tendência dá uma noção da direção de longo prazo da série temporal e pode ser ascendente, descendente ou horizontal.
-    - Sazonalidade são padrões repetidos ao longo do tempo. Por exemplo, uma série temporal de dados de vendas pode mostrar um aumento nas vendas na época do Natal.
-    - O residuo é simplesmente a parte restante ou inexplicável, uma vez que extraímos a tendência e a sazonalidade.
+
+    1. A tendência dá uma noção da direção de longo prazo da série temporal e pode ser ascendente, descendente ou horizontal.
+    2. Sazonalidade são padrões repetidos ao longo do tempo. Por exemplo, uma série temporal de dados de vendas pode mostrar um aumento nas vendas na época do Natal.
+    3. O residuo é simplesmente a parte restante ou inexplicável, uma vez que extraímos a tendência e a sazonalidade.
+
+Você tem um **modelo aditivo** quando a série temporal original pode ser reconstruída adicionando todos os três componentes.
+    1. Um modelo de decomposição aditivo é razoável quando as variações sazonais não mudam ao longo do tempo. 
+    2. Por outro lado, se a série temporal puder ser reconstruída multiplicando todos os três componentes, você terá um modelo multiplicativo. Um modelo multiplicativo é adequado quando a variação sazonal flutua ao longo do tempo    
 
 # SARIMA (p,d,q) x (P,D,Q)
 
