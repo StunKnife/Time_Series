@@ -124,3 +124,28 @@ O teste de **ljung-box** nos resíduos permiti verificar autocorrelações.
     1. Simple Exp Smoothing: ''A suavização exponencial simples'' é usada quando o processo de série temporal ''carece'' de ''sazonalidade'' e ''tendência''. Isso também é conhecido como suavização exponencial única.
     2. Holt: a ''suavização exponencial de Holt'' é um aprimoramento da suavização exponencial simples e é usada quando o processo de série temporal contém ''apenas'' ''tendência'' (mas sem sazonalidade). É referido como suavização exponencial dupla.
     3. Suavização exponencial: a ''suavização exponencial de Holt-Winters'' é um aprimoramento da suavização exponencial de Holt e é usada quando o processo de série temporal ""tem"" ""sazonalidade"" e ""tendência"". É referido como suavização exponencial tripla.
+    
+# Aplicando power transformations
+
+Dependendo do modelo e da análise que você está buscando, pode ser necessário testar suposições adicionais em relação ao conjunto de dados observado ou aos resíduos do modelo.
+
+    1. Mais especificamente, é a variância dos resíduos. Quando a variância não é constante, mudando ao longo do tempo, chamamos de heteroscedasticidade
+    2. Outra suposição que você precisará testar é a normalidade; a observação específica vem de um distribuição normal? 
+    3. As vezes, você também pode querer verificar a normalidade dos resíduos, o que pode fazer parte do estágio de diagnóstico do modelo.
+
+OBS: Se você não fizer isso (checar), poderá acabar com um modelo falho ou um resultado excessivamente otimista ou excessivamente pessimista. 
+
+    1. A transformação ''''Box-Cox'''': pode ser usada para transformar os dados e satisfazer a normalidade e a homoscedasticidade
+    
+ # Testando normalidade
+
+Convenientemente, os testes a seguir têm a mesma hipótese nula. 
+        * A hipótese nula afirma que os dados são normalmente distribuídos
+        
+        1. Teste de Shapiro-Wilks
+        2. teste de Kolmogorov-Smirnov
+
+# Testando Homocedasticidade dos resíduos
+
+Você testará a estabilidade da variância em relação aos resíduos do modelo. 
+        * Teste de Breusch–Pagan: A hipótese nula afirma que os dados são homocedásticos
