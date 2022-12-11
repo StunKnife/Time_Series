@@ -1,6 +1,6 @@
 # Séries Temporais
 
-- Neste repositório é armazenda algumas **funções** para aplicações em **séries temporais**. Podemos destacar os seguintes tópicos:
+- Neste repositório é armazenada algumas **funções** para aplicações em **séries temporais**. Podemos destacar os seguintes tópicos:
 
   1. Modelos: ARIMA, SARIMA e alisamento exponencial
   2. Teste de séries estacionárias
