@@ -154,4 +154,4 @@ Convenientemente, os testes a seguir têm a mesma hipótese nula.  A hipótese n
 # Testando Homocedasticidade dos resíduos
 
 Você testará a estabilidade da variância em relação aos resíduos do modelo. 
-  - Teste de Breusch–Pagan: A hipótese nula afirma que os dados são homocedásticos
+  - Teste de Breusch–Pagan: A hipótese nula afirma que os dados são homocedásticos.
