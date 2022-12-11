@@ -23,16 +23,26 @@ url2='https://raw.githubusercontent.com/PacktPublishing/Time-Series-Analysis-wit
                    
 - Podemos praticar utilizando dados existentes em algumas bibliotecas.
 
-  1. Dataset de co2:  
+  1. **Dataset de co2**:  
+  
   co2_df = co2.load_pandas().data
   co2_df = co2_df.ffill()
 
-  2. Dataset de AirPassengers:
+  2. **Dataset de AirPassengers**:
+  
   air_passengers = get_rdataset("AirPassengers")
   airp_df = air_passengers.data
+  
   airp_df.index = pd.date_range('1949', '1961', freq='M')
+  
   airp_df.drop(columns=['time'], inplace=True)                  
 
+# Decomposição
+
+A decomposição de uma série temporal é o processo de extrair as três componentes e representá-las como seus modelos. A modelagem das componentes decompostos pode ser aditivo ou multiplicativo.
+    - A tendência dá uma noção da direção de longo prazo da série temporal e pode ser ascendente, descendente ou horizontal.
+    - Sazonalidade são padrões repetidos ao longo do tempo. Por exemplo, uma série temporal de dados de vendas pode mostrar um aumento nas vendas na época do Natal.
+    - O residuo é simplesmente a parte restante ou inexplicável, uma vez que extraímos a tendência e a sazonalidade.
 
 # SARIMA (p,d,q) x (P,D,Q)
 
@@ -53,6 +63,24 @@ Os efeitos de tendência e sazonalidade podem ser verificados a partir de análi
 ![(1-3) Curriculo_saul_dnc.jpg](https://github.com/StunKnife/Time_Series/blob/main/guia_PACF_ACF.png)
 
  * Os gráficos ACF e PACF ajudarão você a estimar os valores p e q para os modelos AR e MA, respectivamente. Use plot_acf e plot_pacf nos dados estacionários. Ou seja, nos dados livres de tendência.
+
+    1. PACF para estimar a ordem AR 
+    2. ACF para estimar a ordem MA
+    3. Você precisará diferenciar a série temporal para torná-la estacionária antes de aplicar os gráficos ACF e PACF.
+
+# Guia de exemplo para identificar as ordens AR e MA estacionárias dos gráficos PACF e ACF
+    1. AR(p)
+        - ACF: depois do lag p cai gradualmente. Pode ser oscilatório
+        - PACF: corte no lag p
+
+    2. MA(q)
+        - ACF: corte no lag q
+        - PACF: depois do lag q cai gradualmente. Pode ser oscilatório
+
+    3. ARMA(p,q): 
+        - ACF: depois do lag p cai gradualmente. Pode ser oscilatório
+        - PACF: depois do lag q cai gradualmente. Pode ser oscilatório
+
   
   # Validação dos resíduos
   
@@ -63,6 +91,5 @@ O teste de **ljung-box** nos resíduos permiti verificar autocorrelações.
   1.H0: resíduos não autocorrelacionados    versus    H1: resíduos autocorrelacionados
   2. Um p-valor menor do que 5% de significância fornce evidências suficientes para a rejeição da hipótese nula. Ou seja, existe autocorrelação e o modelo não esta capturando todas as informações da série. Logo existe espaço para melhora do modelo.
 
-- Você também pode inspecionar a **distribuição dos resíduos**. Por exemplo, você esperaria resíduos **normalmente distribuídos** com média zero. 
-    1. Você pode usar o gráfico QQPlot e Kernel Density Estimation (KDE) para observar a distribuição e avaliar normalidade. 
+- Você também pode inspecionar a **distribuição dos resíduos**. Por exemplo, você esperaria resíduos **normalmente distribuídos** com média zero. Você pode usar o gráfico QQPlot e Kernel Density Estimation (KDE) para observar a distribuição e avaliar normalidade. 
 
