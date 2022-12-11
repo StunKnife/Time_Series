@@ -7,6 +7,35 @@
   4. Análise de autocorrelação
   5. Análise de diagnóstico
 ---
+# Dataset
+
+url1='https://raw.githubusercontent.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/main/datasets/Ch10/life_expectancy_birth.csv'
+url2='https://raw.githubusercontent.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/main/datasets/Ch10/milk_production.csv'
+
+ - Como chamar os dados? Podemos aplicar a seguinte função:
+
+life = pd.read_csv(url1, 
+                   index_col='year',
+                   parse_dates=True,
+                  skipfooter=1)
+
+milk = pd.read_csv(url2, 
+                   index_col='month', 
+                   parse_dates=True)
+                   
+- Podemos praticar utilizando dados existentes em algumas bibliotecas.
+
+  1. Dataset de co2:  
+  co2_df = co2.load_pandas().data
+  co2_df = co2_df.ffill()
+
+  2. Dataset de AirPassengers:
+  air_passengers = get_rdataset("AirPassengers")
+  airp_df = air_passengers.data
+  airp_df.index = pd.date_range('1949', '1961', freq='M')
+  airp_df.drop(columns=['time'], inplace=True)                  
+
+
 # SARIMA (p,d,q) x (P,D,Q)
 
 Quando lidamos com os modelos SARIMA estamos partindo do pressuposto que nossa série temporal apresenta
