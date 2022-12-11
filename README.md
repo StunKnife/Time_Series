@@ -102,6 +102,7 @@ Os gráficos ACF e PACF ajudarão você a estimar os valores p e q para os model
     3. Você precisará diferenciar a série temporal para torná-la estacionária antes de aplicar os gráficos ACF e PACF.
 
 Tradução da Figura acima:
+
     1. AR(p)
         - ACF: depois do lag p cai gradualmente. Pode ser oscilatório
         - PACF: corte no lag p
