@@ -59,6 +59,10 @@ Os efeitos de tendência e sazonalidade podem ser verificados a partir de análi
 Agora, você precisará validar os resíduos do modelo para determinar se o modelo ARIMA que você construiu capturou os sinais na série temporal.
   - A suposição é que, se o modelo capturou todas as informações, os resíduos da previsão do modelo são aleatórios (ruído) e não seguem um padrão. 
 
-O teste de *ljung-box** nos resíduos permiti verificar autocorrelações.
+O teste de **ljung-box** nos resíduos permiti verificar autocorrelações.
   1.H0: resíduos não autocorrelacionados    versus    H1: resíduos autocorrelacionados
   2. Um p-valor menor do que 5% de significância fornce evidências suficientes para a rejeição da hipótese nula. Ou seja, existe autocorrelação e o modelo não esta capturando todas as informações da série. Logo existe espaço para melhora do modelo.
+
+- Você também pode inspecionar a **distribuição dos resíduos**. Por exemplo, você esperaria resíduos **normalmente distribuídos** com média zero. 
+    1. Você pode usar o gráfico QQPlot e Kernel Density Estimation (KDE) para observar a distribuição e avaliar normalidade. 
+
