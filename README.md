@@ -19,7 +19,7 @@ Os efeitos de tendência e sazonalidade podem ser verificados a partir de análi
   
   Em python existe duas funções **ndiffs** e **sndiffs**. Elas estimam a quantidade de diferenças necessárias para remover os efeitos de tenência e sazonalidade.
   
-  # ETAPA DE AJUSTE
+  # ACF e PACF 
   
   Após verificar as componentes da série temporal podemos nos preocupar em estimar seus parâmetros. Os parâmetros auto regressivos AR(p) e médias móveis MA(q) podem
   ser identificados a partir de  análises gráficas. Para tanto podemos utilizar os gráficos de ACF e PACF. Para interpretar estes gráficos podemos utilizar a Figura a seguir.
