@@ -6,7 +6,7 @@
   3. Decomposição da série temporal em suas componentes: tendência e sazonalidade
   4. Análise de autocorrelação
   5. Análise de diagnóstico
----
+
 # Dataset
 
 Para treinar séries temporais é possível utilizar dois datasets disponibilizados nos seguintes repositórios:
@@ -119,3 +119,8 @@ O teste de **ljung-box** nos resíduos permiti verificar autocorrelações.
 
 - Você também pode inspecionar a **distribuição dos resíduos**. Por exemplo, você esperaria resíduos **normalmente distribuídos** com média zero. Você pode usar o gráfico QQPlot e Kernel Density Estimation (KDE) para observar a distribuição e avaliar normalidade. 
 
+# Suavização Exponencial
+
+    1. Simple Exp Smoothing: ''A suavização exponencial simples'' é usada quando o processo de série temporal ''carece'' de ''sazonalidade'' e ''tendência''. Isso também é conhecido como suavização exponencial única.
+    2. Holt: a ''suavização exponencial de Holt'' é um aprimoramento da suavização exponencial simples e é usada quando o processo de série temporal contém ''apenas'' ''tendência'' (mas sem sazonalidade). É referido como suavização exponencial dupla.
+    3. Suavização exponencial: a ''suavização exponencial de Holt-Winters'' é um aprimoramento da suavização exponencial de Holt e é usada quando o processo de série temporal ""tem"" ""sazonalidade"" e ""tendência"". É referido como suavização exponencial tripla.
