@@ -46,25 +46,46 @@ A decomposição de uma série temporal é o processo de extrair as três compon
     3. O residuo é simplesmente a parte restante ou inexplicável, uma vez que extraímos a tendência e a sazonalidade.
 
 Você tem um **modelo aditivo** quando a série temporal original pode ser reconstruída adicionando todos os três componentes.
+
     1. Um modelo de decomposição aditivo é razoável quando as variações sazonais não mudam ao longo do tempo. 
     2. Por outro lado, se a série temporal puder ser reconstruída multiplicando todos os três componentes, você terá um modelo multiplicativo. Um modelo multiplicativo é adequado quando a variação sazonal flutua ao longo do tempo    
 
 # SARIMA (p,d,q) x (P,D,Q)
 
 Quando lidamos com os modelos SARIMA estamos partindo do pressuposto que nossa série temporal apresenta
+
   1. Tendência: É necessário aplicar diferenças na série para torna-la estacionária. Ou seja, livre de tendência
   2. Sazonalidade: Existe um efeito sazonal da série que pode ser aditivo ou multiplicativo
   
 Os efeitos de tendência e sazonalidade podem ser verificados a partir de análise gráfica e testes de hipóteses.
+
   1. Análise gráfica: Podemos aplicar uma decomposição estrutural da série temporal.
   2. Os testes de hipoteses: Dickey-Fuller (tendência) e Kruskal Wallis (sazonalidade)
   
-  Em python existe duas funções **ndiffs** e **sndiffs**. Elas estimam a quantidade de diferenças necessárias para remover os efeitos de tenência e sazonalidade.
+ Em python existe duas funções **ndiffs** e **sndiffs**. Elas estimam a quantidade de diferenças necessárias para remover os efeitos de tenência e sazonalidade.
   
+ # Teste de estacionariedade
+ 
+ * Testes estatísticos
+ 
+    1.  ADF: a hipótese nula afirma que existe uma raiz unitária na série temporal e, portanto, é não estacionária. 
+    2.  KPSS: tem a hipótese nula oposta, que assume que a série temporal é estacionária.  
+  
+
+# Tornando umaa série estacionária
+
+     1. Diferenciação de primeira ordem: é calculada subtraindo uma observação no tempo t da observação anterior no tempo t-1
+     2. Diferenciação de segunda ordem: Isso é útil se houver sazonalidade ou se a diferenciação de primeira ordem for insuficiente. Isso é basicamente diferenciar duas vezes - diferenciar para remover a sazonalidade seguida de diferenciar para remover a tendência.
+     3. Subtraindo a média móvel (janela contínua) da série temporal 
+     4. A transformação de log: usando np.log() é uma técnica comum para estabilizar a variação em uma série temporal e, às vezes, o suficiente para tornar a série temporal estacionária. Simplesmente, tudo o que ele faz é substituir cada observação por seu valor logarítmico
+     5. Usando a decomposição da série temporal para remover o componente de tendência, como sazonal_decompose. 
+     6. Usando o filtro Hodrick-Prescott para remover o componente de tendência, por exemplo, usando hp_filter
+
+
   # ACF e PACF 
   
-  Após verificar as componentes da série temporal podemos nos preocupar em estimar seus parâmetros. Os parâmetros auto regressivos AR(p) e médias móveis MA(q) podem
-  ser identificados a partir de  análises gráficas. Para tanto podemos utilizar os gráficos de ACF e PACF. Para interpretar estes gráficos podemos utilizar a Figura a seguir.
+Após verificar as componentes da série temporal podemos nos preocupar em estimar seus parâmetros. Os parâmetros auto regressivos AR(p) e médias móveis MA(q) podem
+ser identificados a partir de  análises gráficas. Para tanto podemos utilizar os gráficos de ACF e PACF. Para interpretar estes gráficos podemos utilizar a Figura a seguir.
 ![(1-3) Curriculo_saul_dnc.jpg](https://github.com/StunKnife/Time_Series/blob/main/guia_PACF_ACF.png)
 
  * Os gráficos ACF e PACF ajudarão você a estimar os valores p e q para os modelos AR e MA, respectivamente. Use plot_acf e plot_pacf nos dados estacionários. Ou seja, nos dados livres de tendência.
